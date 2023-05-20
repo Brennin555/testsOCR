@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Leitor de texto de imagens
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,23 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-img src={{this.image}}></ion-img>
+  <ion-button expand="full" (click)="recognizeImage()" [disabled]="!workerReady">Reconhecer foto</ion-button>
+  <ion-button expand="full" (click)="captureImage()" [disabled]="!workerReady">Tirar foto</ion-button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Capture progress: {{captureProgress}}%
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-progress-bar [value]="captureProgress"></ion-progress-bar>
+    {{ ocrResult }}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

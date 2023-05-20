@@ -1,0 +1,8 @@
+{
+  "appId": "com.brenno.testeocr1",
+  "appName": "Teste OCR 1",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
